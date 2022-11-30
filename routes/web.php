@@ -13,16 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome-laravel', function () {
     return view('welcome');
+});
+
+Route::get('/', function () {
+    return view('home');
 });
 
 Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/home/create', function () {
-    return view('create');
+Route::get('/education', function () {
+    return view('education');
+});
+
+Route::get('/projects', function () {
+    return view('projects');
+});
+
+Route::get('/about', function () {
+    return view('about');
 });
 
 Route::get('/app', function () {

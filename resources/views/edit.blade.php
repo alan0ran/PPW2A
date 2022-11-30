@@ -1,7 +1,10 @@
 @extends("home")
 
 @section("content")
-<form action="{{ route('posts.create') }}" method="POST">
+<h1>Edit Blog Post</h1> 
+<form action="{{ route('posts.update', $posts->id) }}" method="POST">
+@method('PUT')
+
 {{ csrf_field() }}  
 <div class="form-group">
     <label for="exampleTitle">Title</label>
@@ -11,6 +14,7 @@
     <label for="exampleDescription">Description</label>
     <input type="text" name="description" class="form-control" id="exampleDescription" placeholder="Description">
   </div>
+  <input type="hidden" name="id" value="{{ $posts->id }}">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

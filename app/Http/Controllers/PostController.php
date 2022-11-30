@@ -14,7 +14,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Post::All();
+        $data = array(
+            'id' => "posts",
+            'posts' => Post::All()
+        );
+        return view('index')->with($data);
     }
 
     /**
@@ -24,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,9 +41,9 @@ class PostController extends Controller
     {
         //
         $post = new Post;
-$post->title = $request->input('title');
-$post->description = $request->input('description');
-$post->save();
+        $post->title = $request->input('title');
+        $post->description = $request->input('description');
+        $post->save();
     }
 
     /**
@@ -66,7 +70,11 @@ $post->save();
      */
     public function edit($id)
     {
-        //
+        $data = array(
+            'id' => "posts",
+            'posts' => Post::find($id)
+        );
+        return view('edit')->with($data);
     }
 
     /**
@@ -78,7 +86,11 @@ $post->save();
      */
     public function update(Request $request, $id)
     {
-        //
+        Post::where('id', $request->id)->update([
+            'title' => $request -> title,
+            'description' => $request -> description
+        ]);
+        return redirect('posts');
     }
 
     /**
