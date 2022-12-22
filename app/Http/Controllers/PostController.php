@@ -44,6 +44,8 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->description = $request->input('description');
         $post->save();
+
+        return redirect('posts');
     }
 
     /**
@@ -101,6 +103,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        $post = Post::find($id);
+        $post -> delete();
+        return redirect('posts');
         //
     }
 }

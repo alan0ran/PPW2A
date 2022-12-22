@@ -1,7 +1,7 @@
 @extends("home")
 
 @section("content")
-<form action="{{ route('posts.create') }}" method="POST">
+<form action="{{ route('posts.store') }}" method="POST">
 {{ csrf_field() }}  
 <div class="form-group">
     <label for="exampleTitle">Title</label>

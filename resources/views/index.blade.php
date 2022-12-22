@@ -14,8 +14,6 @@
         <p>{{$post->description}}<p> -->
 
         <a href="/posts/{{$post->id}}" class="btn btn-primary">See More</a>
-        <!-- Kemudian buat tambahkan link untuk edit pada file show.blade.php -->
-        <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
         @endforeach
     </div>
 </div>
